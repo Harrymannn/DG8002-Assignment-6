@@ -1,0 +1,171 @@
+/* DG8002 - Activity 7
+   TAG-Me Extreme Makeover
+   Harry Mann
+*/
+
+
+/* ---------- GENERAL PAGE STYLE ---------- */
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
+    color: #222222;
+    line-height: 1.6;
+}
+
+
+/* ---------- HEADER ---------- */
+
+header {
+    background-color: #1f2937;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header h1 {
+    margin-bottom: 5px;
+}
+
+
+/* ---------- NAVIGATION / FLEXBOX ---------- */
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: white;
+    color: #1f2937;
+}
+
+
+/* ---------- MAIN CONTENT ---------- */
+
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+section {
+    background-color: white;
+    margin-bottom: 25px;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #dddddd;
+}
+
+h2 {
+    color: #1f4e79;
+}
+
+
+/* ---------- REUSABLE CLASSES ---------- */
+
+.info-card {
+    background-color: #eef4f8;
+    padding: 20px;
+    margin-top: 15px;
+    border-left: 5px solid #1f4e79;
+    border-radius: 5px;
+}
+
+.highlight {
+    font-weight: bold;
+    color: #1f4e79;
+}
+
+
+/* ---------- PROFILE IMAGE ---------- */
+
+.profile-image {
+    display: block;
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+
+/* ---------- ID SELECTOR ---------- */
+
+#character-stats {
+    background-color: #fff8e7;
+    border: 2px solid #d4a72c;
+}
+
+
+/* ---------- LISTS ---------- */
+
+li {
+    margin-bottom: 8px;
+}
+
+
+/* ---------- LINKS ---------- */
+
+main a {
+    color: #0066cc;
+}
+
+main a:hover {
+    text-decoration: none;
+}
+
+
+/* ---------- FOOTER ---------- */
+
+footer {
+    background-color: #1f2937;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+footer a {
+    color: white;
+}
+
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 20px 10px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    main {
+        margin: 15px auto;
+        padding: 0 10px;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    .profile-image {
+        max-width: 100%;
+    }
+}
