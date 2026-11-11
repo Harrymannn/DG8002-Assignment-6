@@ -22,10 +22,28 @@
             <a href="index.html">Home</a> |
             <a href="classified.html">Classified File</a>
         </nav>
+        <button id="themeButton">Switch to Dark Mode</button>
     </header>
 
     <main>
+<section class="interactive-section">
 
+    <h2>Welcome, Visitor!</h2>
+
+    <p>Before exploring the archives, tell me your name:</p>
+
+    <input
+        type="text"
+        id="nameInput"
+        placeholder="Enter your name">
+
+    <button id="greetingButton">
+        Enter the Archives
+    </button>
+
+    <p id="greetingDisplay"></p>
+
+</section>
         <section>
             <h2>Who is Harry?</h2>
 
@@ -74,7 +92,24 @@
                 </ul>
             </div>
         </section>
+<section class="interactive-section">
 
+    <h2>Random Harry Fact</h2>
+
+    <p>
+        The archives contain information that nobody asked for.
+        Click below to reveal one.
+    </p>
+
+    <button id="factButton">
+        Reveal Random Fact
+    </button>
+
+    <p id="factDisplay">
+        Your random fact will appear here.
+    </p>
+
+</section>
 
         <section>
             <h2>Current Interests</h2>
