@@ -169,3 +169,73 @@ footer a {
         max-width: 100%;
     }
 }
+/* --------------------------------
+   ACTIVITY 8 - INTERACTIVE ELEMENTS
+----------------------------------- */
+
+
+/* Buttons */
+
+button {
+    background-color: #1f4e79;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    margin: 10px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #163a5c;
+}
+
+
+/* Text Input */
+
+input {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    max-width: 250px;
+}
+
+
+/* Interactive Sections */
+
+.interactive-section {
+    text-align: center;
+}
+
+
+/* -------------------------
+   DARK MODE
+------------------------- */
+
+body.dark-mode {
+    background-color: #121212;
+    color: #eeeeee;
+}
+
+body.dark-mode section {
+    background-color: #242424;
+    color: #eeeeee;
+    border-color: #444444;
+}
+
+body.dark-mode h2 {
+    color: #90caf9;
+}
+
+body.dark-mode .info-card {
+    background-color: #333333;
+}
+
+body.dark-mode #character-stats {
+    background-color: #332f20;
+}
+
+body.dark-mode main a {
+    color: #90caf9;
+}
