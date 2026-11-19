@@ -239,3 +239,51 @@ body.dark-mode #character-stats {
 body.dark-mode main a {
     color: #90caf9;
 }
+
+/* --------------------------------
+   ACTIVITY 9 - INTERACTIVE QUIZ
+----------------------------------- */
+
+#quizContainer {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid #1f4e79;
+    border-radius: 10px;
+    text-align: left;
+}
+
+#answerChoices {
+    margin: 20px 0;
+}
+
+#answerChoices label {
+    display: inline-block;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.correct-answer {
+    color: green;
+    font-weight: bold;
+}
+
+.wrong-answer {
+    color: red;
+    font-weight: bold;
+}
+
+
+/* Quiz Dark Mode */
+
+body.dark-mode #quizContainer {
+    border-color: #90caf9;
+}
+
+body.dark-mode .correct-answer {
+    color: lightgreen;
+}
+
+body.dark-mode .wrong-answer {
+    color: #ff8a80;
+}
