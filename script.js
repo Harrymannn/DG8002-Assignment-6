@@ -66,3 +66,187 @@ greetingButton.addEventListener("click", function () {
     }
 
 });
+
+
+// -------------------------
+// HARRY MANN ARCHIVES QUIZ
+// -------------------------
+
+const quizQuestions = [
+    {
+        question: "Which area is Harry interested in combining with technology?",
+        answers: [
+            "Human-Centred Design",
+            "Agriculture",
+            "Accounting"
+        ],
+        correctAnswer: "Human-Centred Design"
+    },
+
+    {
+        question: "Which programming language appears in Harry's skill inventory?",
+        answers: [
+            "Python",
+            "Swift",
+            "Ruby"
+        ],
+        correctAnswer: "Python"
+    },
+
+    {
+        question: "Where did Harry's journey eventually bring him?",
+        answers: [
+            "Toronto",
+            "Paris",
+            "Tokyo"
+        ],
+        correctAnswer: "Toronto"
+    }
+];
+
+
+// Keep track of the quiz state
+let currentQuestion = 0;
+let score = 0;
+let selectedAnswer = "";
+let questionAnswered = false;
+
+
+// Get elements from the webpage
+const questionText = document.getElementById("questionText");
+const answerChoices = document.getElementById("answerChoices");
+const checkAnswerButton = document.getElementById("checkAnswerButton");
+const nextQuestionButton = document.getElementById("nextQuestionButton");
+const quizFeedback = document.getElementById("quizFeedback");
+const quizScore = document.getElementById("quizScore");
+const questionNumber = document.getElementById("questionNumber");
+
+
+// Display a quiz question
+function displayQuestion() {
+
+    const question = quizQuestions[currentQuestion];
+
+    questionText.textContent = question.question;
+
+    answerChoices.innerHTML = "";
+
+    selectedAnswer = "";
+    questionAnswered = false;
+
+    quizFeedback.textContent = "";
+
+    question.answers.forEach(function(answer) {
+
+        const label = document.createElement("label");
+        const radioButton = document.createElement("input");
+
+        radioButton.type = "radio";
+        radioButton.name = "quizAnswer";
+        radioButton.value = answer;
+
+        // CHANGE EVENT
+        radioButton.addEventListener("change", function() {
+            selectedAnswer = answer;
+
+            quizFeedback.textContent =
+                "You selected: " + answer;
+        });
+
+        label.appendChild(radioButton);
+        label.appendChild(document.createTextNode(" " + answer));
+
+        answerChoices.appendChild(label);
+        answerChoices.appendChild(document.createElement("br"));
+    });
+
+    quizScore.textContent = score;
+    questionNumber.textContent = currentQuestion + 1;
+}
+
+
+// CLICK EVENT - Check the selected answer
+checkAnswerButton.addEventListener("click", function() {
+
+    if (selectedAnswer === "") {
+        quizFeedback.textContent =
+            "Please select an answer before checking.";
+        return;
+    }
+
+    if (questionAnswered) {
+        quizFeedback.textContent =
+            "You already answered this question. Click Next Question.";
+        return;
+    }
+
+    const correctAnswer =
+        quizQuestions[currentQuestion].correctAnswer;
+
+    if (selectedAnswer === correctAnswer) {
+
+        score++;
+
+        quizFeedback.textContent =
+            "Correct! Great job.";
+
+        quizFeedback.className = "correct-answer";
+
+    } else {
+
+        quizFeedback.textContent =
+            "Incorrect. The correct answer is " +
+            correctAnswer + ".";
+
+        quizFeedback.className = "wrong-answer";
+    }
+
+    questionAnswered = true;
+    quizScore.textContent = score;
+});
+
+
+// CLICK EVENT - Move to next question
+nextQuestionButton.addEventListener("click", function() {
+
+    if (!questionAnswered) {
+        quizFeedback.textContent =
+            "Please answer the current question first.";
+        return;
+    }
+
+    currentQuestion++;
+
+    if (currentQuestion < quizQuestions.length) {
+
+        displayQuestion();
+
+    } else {
+
+        questionText.textContent = "Quiz Complete!";
+
+        answerChoices.innerHTML = "";
+
+        checkAnswerButton.style.display = "none";
+        nextQuestionButton.style.display = "none";
+
+        quizFeedback.className = "";
+
+        quizFeedback.textContent =
+            "Final Score: " + score +
+            " out of " + quizQuestions.length;
+    }
+});
+
+
+// KEYBOARD EVENT
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter" && selectedAnswer !== "") {
+        checkAnswerButton.click();
+    }
+});
+
+
+// Load the first question
+displayQuestion();
