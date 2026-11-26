@@ -7,9 +7,9 @@
 
     <title>The Harry Mann Archives</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3">
 
-<script src="script.js?v=2" defer></script>
+<script src="script.js?v=3" defer></script>
 </head>
 
 <body>
@@ -165,6 +165,37 @@
                 </a>.
             </p>
         </section>
+        <section class="interactive-section" id="catSection">
+
+    <h2>Random Cat Explorer</h2>
+
+    <p>
+        Discover a random cat from around the world
+        using a public API.
+    </p>
+
+    <button id="catButton">
+        Discover a Cat
+    </button>
+
+    <p id="catStatus">
+        Click the button to discover a cat.
+    </p>
+
+    <img id="catImage"
+         alt="Random cat retrieved from The Cat API"
+         hidden>
+
+    <p id="catDetails"></p>
+
+    <p>
+        Powered by
+        <a href="https://thecatapi.com/" target="_blank">
+            The Cat API
+        </a>
+    </p>
+
+</section>
 
     </main>
 
