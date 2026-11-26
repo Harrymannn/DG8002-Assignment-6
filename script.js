@@ -303,6 +303,7 @@ async function getRandomCat() {
 
     } finally {
 
+        
         catButton.disabled = false;
 
     }
