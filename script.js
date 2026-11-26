@@ -250,3 +250,63 @@ document.addEventListener("keydown", function(event) {
 
 // Load the first question
 displayQuestion();
+
+
+// -------------------------
+// ACTIVITY 10 - CAT API
+// -------------------------
+
+const catButton = document.getElementById("catButton");
+const catImage = document.getElementById("catImage");
+const catStatus = document.getElementById("catStatus");
+const catDetails = document.getElementById("catDetails");
+
+async function getRandomCat() {
+
+    catStatus.textContent = "Loading a random cat...";
+    catImage.hidden = true;
+    catDetails.textContent = "";
+    catButton.disabled = true;
+
+    try {
+
+        const response = await fetch(
+            "https://api.thecatapi.com/v1/images/search",
+            { cache: "no-store" }
+        );
+
+        if (!response.ok) {
+            throw new Error("Unable to retrieve data.");
+        }
+
+        const data = await response.json();
+
+        const cat = data[0];
+
+        catImage.src = cat.url;
+        catImage.hidden = false;
+
+        catStatus.textContent =
+            "Cat image successfully retrieved!";
+
+        catDetails.textContent =
+            "Image ID: " + cat.id +
+            " | Dimensions: " + cat.width +
+            " x " + cat.height + " pixels";
+
+    } catch (error) {
+
+        catStatus.textContent =
+            "Unable to retrieve a cat right now. Please try again.";
+
+        catImage.hidden = true;
+
+    } finally {
+
+        catButton.disabled = false;
+
+    }
+
+}
+
+catButton.addEventListener("click", getRandomCat);
